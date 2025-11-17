@@ -4,6 +4,8 @@ import numpy as np
 import joblib
 from pydantic import BaseModel
 from typing import Optional
+import json
+import random
 
 # Import your preprocessing + feature engineering
 from src.preprocessing.preprocessing import preprocess
@@ -28,18 +30,28 @@ MAPPING_PATH = "models/geo_bin_te_mapping.pkl"
 model = joblib.load(MODEL_PATH)
 geo_mapping = joblib.load(MAPPING_PATH)
 
+# Load test samples
+with open("api/sample_rows.json", "r") as f:
+    SAMPLE_ROWS = json.load(f)
+
+@app.get("/sample")
+def get_sample():
+    """
+    Returns a random valid test row from the real test dataset.
+    Safe to submit directly to /predict.
+    """
+    return random.choice(SAMPLE_ROWS)
+
 # -----------------------------
 # Pydantic input schema
 # -----------------------------
 class HouseRow(BaseModel):
-    # aircond: Optional[str] = None
     aircond: int | None = None
     qualitybuild: int | None = None
     heatingtype: int | None = None
     unitnum: int | None = None
     basement: Optional[float] = None
     numbedroom: Optional[float] = None
-    # qualitybuild: Optional[str] = None
     decktype: Optional[float] = None
     finishedarea: float
     finishedareaEntry: Optional[float] = None
@@ -49,7 +61,6 @@ class HouseRow(BaseModel):
     garagenum: Optional[float] = None
     garagearea: Optional[float] = None
     tubflag: Optional[bool] = None
-    # heatingtype: Optional[str] = None
     latitude: float
     longitude: float
     lotarea: Optional[float] = None
@@ -61,7 +72,6 @@ class HouseRow(BaseModel):
     regioncode: int
     roomnum: Optional[float] = None
     num34bath: Optional[float] = None
-    # unitnum: Optional[str] = None
     year: Optional[float] = None
     numstories: Optional[float] = None
     taxyear: Optional[float] = None
