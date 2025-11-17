@@ -22,22 +22,22 @@ from src.config import (
 
 def predict_model():
 
-    print("📥 Loading test data...")
+    print("✅Loading test data...")
     df = pd.read_csv(TEST_DATA_PATH)
 
-    print("🧹 Applying preprocessing...")
+    print("✅Applying preprocessing...")
     df = preprocess(df, is_train=False)
 
-    print("🛠 Adding basic engineered features...")
+    print("✅Adding basic engineered features...")
     df = add_basic_features(df)
 
-    print("🌍 Adding geo bins...")
+    print("✅Adding geo bins...")
     df = add_geo_bins(df)
 
-    print("🎯 Loading saved geo-bin target encoding mapping...")
+    print("✅Loading saved geo-bin target encoding mapping...")
     mapping = joblib.load("models/geo_bin_te_mapping.pkl")
 
-    print("🎯 Applying target encoding to geo bins...")
+    print("✅Applying target encoding to geo bins...")
     df["geo_bin_te"] = target_encode_apply(
         df,
         col=GEO_BIN,
