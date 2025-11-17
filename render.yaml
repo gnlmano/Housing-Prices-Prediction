@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: housing-api
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /
+    envVars: []
