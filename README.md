@@ -1,6 +1,6 @@
 # Course: Data Science for Decision Making
 
-## Module: Computational Machine Learning I - Assignment I
+## Module: Computational Machine Learning I - Assignment I (Instructions for assignment)
 
 ### Linear Regression:
 
@@ -32,3 +32,25 @@ You can follow those steps in your first implementation:
 Note that you should not use *totaltaxvalue*, *buildvalue *or *landvalue*, because they are closely correlated with the final value to predict.
 
 You may want to iterate to refine some of these steps once you get performance results in step 5.
+
+# Extension to deployment code:
+Housing Price Prediction — End-to-End ML Pipeline + API Deployment
+
+This project builds an end-to-end machine learning system to predict housing prices using tabular data (parcel-level features, geographic encoding, property characteristics, etc.).
+
+Work done:
+- Data cleaning & preprocessing pipeline
+- Feature engineering
+- Geospatial binning + target encoding
+- Model training with cross-validation & hyperparameter tuning
+- Fully reproducible scikit-learn pipeline
+- Dockerized FastAPI prediction service
+- Automated tests (pytest)
+
+## To run locally:
+1. Create environment & install dependencies
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pytest -q
+python src/training/train_model.py
