@@ -1,6 +1,6 @@
 import numpy as np
 from sklearn.model_selection import KFold
-from src.config import (
+from housing.config import (
     LAT_BIN_SCALE, LON_BIN_SCALE, LOG_TARGET, N_SPLITS, TARGET_ENCODER_K
 )
 
@@ -11,24 +11,6 @@ def add_geo_bins(df):
     df['lon_bin'] = (df['longitude'] * LON_BIN_SCALE).round().astype(int)
     df['geo_bin'] = df['lat_bin'].astype(str) + "_" + df['lon_bin'].astype(str)
     return df
-
-# Function to target encode the lat-lon bins
-# def oof_target_encode(train, test, col, target, n_splits=5, k=20):
-#     train_encoded = np.zeros(len(train))
-#     global_mean = train[target].mean()
-#     kf = KFold(n_splits=n_splits, shuffle=True, random_state=42)
-    
-#     for tr_idx, val_idx in kf.split(train):
-#         tr, val = train.iloc[tr_idx], train.iloc[val_idx]
-#         stats = tr.groupby(col)[target].agg(['mean', 'count'])
-#         smooth = (stats['count'] * stats['mean'] + k * global_mean) / (stats['count'] + k)
-#         train_encoded[val_idx] = val[col].map(smooth).fillna(global_mean)
-    
-#     test_stats = train.groupby(col)[target].agg(['mean', 'count'])
-#     smooth = (test_stats['count'] * test_stats['mean'] + k * global_mean) / (test_stats['count'] + k)
-#     test_encoded = test[col].map(smooth).fillna(global_mean)
-    
-#     return train_encoded, test_encoded
 
 def oof_target_encode_train(train_df, col, target, n_splits = N_SPLITS, k=TARGET_ENCODER_K, random_state=42):
     train_encoded = np.zeros(len(train_df))

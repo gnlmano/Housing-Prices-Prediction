@@ -9,10 +9,10 @@ from sklearn.preprocessing import StandardScaler, FunctionTransformer, OneHotEnc
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import root_mean_squared_error
 
-from src.preprocessing.preprocessing import preprocess
-from src.features.create_features import add_basic_features
-from src.features.geo_features import oof_target_encode_train, add_geo_bins
-from src.config import (
+from housing.preprocessing.preprocessing import preprocess
+from housing.features.create_features import add_basic_features
+from housing.features.geo_features import oof_target_encode_train, add_geo_bins
+from housing.config import (
     RAW_DATA_PATH,
     # MODEL_PATH, 
     # ENCODER_PATH,

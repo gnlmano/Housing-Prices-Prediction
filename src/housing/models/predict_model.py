@@ -3,10 +3,10 @@ import numpy as np
 import joblib
 import os
 
-from src.preprocessing.preprocessing import preprocess
-from src.features.create_features import add_basic_features
-from src.features.geo_features import add_geo_bins, target_encode_apply
-from src.config import (
+from housing.preprocessing.preprocessing import preprocess
+from housing.features.create_features import add_basic_features
+from housing.features.geo_features import add_geo_bins, target_encode_apply
+from housing.config import (
     TEST_DATA_PATH,
     RAW_TARGET,
     LOG_TARGET,

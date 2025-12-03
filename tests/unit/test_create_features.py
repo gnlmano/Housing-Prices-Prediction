@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-from src.features.create_features import add_basic_features
-from src.config import DROP_TRAIN, IMPUTE_ZERO, IMPUTE_FALSE, IMPUTE_NO, PRESENT_YEAR
+from housing.features.create_features import add_basic_features
+from housing.config import DROP_TRAIN, IMPUTE_ZERO, IMPUTE_FALSE, IMPUTE_NO, PRESENT_YEAR
 
 # Test drop columns
 def test_create_features():

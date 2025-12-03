@@ -1,6 +1,6 @@
 import pandas as pd
-from src.preprocessing.preprocessing import preprocess, drop_columns, impute_missing
-from src.config import DROP_TRAIN, IMPUTE_ZERO, IMPUTE_FALSE, IMPUTE_NO, PRESENT_YEAR
+from housing.preprocessing.preprocessing import preprocess, drop_columns, impute_missing
+from housing.config import DROP_TRAIN, IMPUTE_ZERO, IMPUTE_FALSE, IMPUTE_NO, PRESENT_YEAR
 
 # Test drop columns
 def test_drop_columns_train():

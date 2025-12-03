@@ -1,6 +1,6 @@
 import pandas as pd
-from src.features.geo_features import add_geo_bins
-from src.config import LAT_BIN_SCALE, LON_BIN_SCALE
+from housing.features.geo_features import add_geo_bins
+from housing.config import LAT_BIN_SCALE, LON_BIN_SCALE
 
 def test_geo_bin_creation():
     df = pd.DataFrame({

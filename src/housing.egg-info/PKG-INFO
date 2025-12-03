@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: housing
+Version: 0.1.0
+Summary: Housing price prediction package
+Requires-Python: >=3.9
