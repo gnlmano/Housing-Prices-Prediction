@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import KFold
-from src.config import (
+from housing.config import (
     DROP_TRAIN, DROP_TEST,
     IMPUTE_ZERO, IMPUTE_FALSE, IMPUTE_NO,
     PRESENT_YEAR,

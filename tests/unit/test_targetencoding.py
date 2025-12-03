@@ -1,5 +1,5 @@
 import pandas as pd
-from src.features.geo_features import oof_target_encode_train
+from housing.features.geo_features import oof_target_encode_train
 
 def test_oof_encoding_shapes():
     df = pd.DataFrame({
